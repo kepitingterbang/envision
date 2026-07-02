@@ -1,0 +1,243 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=MonteCarlo&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --stroke: black;
+    --text: white;
+    --maxw: 1600px;
+    --surface: white;
+    --hitamp: #1A202C;
+    --gold: #D0A373;
+    --pblue: #3B5D79;
+    --ogrey: #CFD4DA;
+}
+body {
+    font-family: montserrat, cinzel, montecarlo;
+    min-height: 100vh;
+    color: var(--text);
+    line-height: 1.45;
+    overflow: hidden;
+}
+
+.nav{
+    position: sticky;
+    top: 0;
+    background-color: white;
+    padding: clamp(0.5rem, 1vw + 0.2rem, 1rem) clamp(1rem, 2vw + 0.5rem, 3rem);
+    border-bottom: 1.5px solid var(--stroke);
+    z-index: 100;
+}
+
+.nav-inner{
+    max-width: var(--maxw);
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    line-height: 1.5;
+
+}
+.brand-first{
+    font-family: cinzel, sans-serif;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.brand-second{
+    font-family: cinzel, serif;
+    color: var(--hitamp);
+    letter-spacing: -0.03em;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.75rem, 1vw, 1.5rem);
+    list-style: none;
+}
+
+.menu a{
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    font-size: clamp(0.9rem, 0.9vw, 1.05rem);
+    font-weight: 500;
+    color: black;
+    transition: 0.2s;
+}
+
+.menu a:hover{
+    color:var(--gold);
+}
+
+.search{
+    position: relative;
+}
+
+.search input{
+    width: 100%;
+    padding: 0.6rem 2.5rem 0.6rem 0.75rem;
+    font-size: 0.8rem;
+    color: black;
+    border: 1px solid black;
+    outline: none;
+}
+
+.search input::placeholder{
+    color: black;
+
+}
+
+.search button{
+    position: absolute;
+    right: 0.6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    background-color: none;
+    cursor: pointer;
+    color: black;
+    display: flex;
+    align-items: center;
+}
+
+.search svg{
+    width: clamp(18px, 2vw, 24px);
+    height: clamp(18px, 2vw, 24px);
+    
+}
+
+.nav-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+}
+.menu-toggle{
+    display: none;
+}
+.hamburger {
+    display: none;
+    width: clamp(40px, 6vw, 45px);
+    height: clamp(40px,6vw, 45px);
+    align-items: center;
+    border: 12px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.hamburger span,
+.hamburger span::before,
+.hamburger span::after{
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: rgb(0, 0, 0);
+    position: relative;
+    content: "";
+    transition: transform 0.25s ease, top 0.25s ease, background 0.25s ease;
+    -webkit-transition: transform 0.25s ease, top 0.25s ease, background 0.25s ease;
+    -moz-transition: transform 0.25s ease, top 0.25s ease, background 0.25s ease;
+    -ms-transition: transform 0.25s ease, top 0.25s ease, background 0.25s ease;
+    -o-transition: transform 0.25s ease, top 0.25s ease, background 0.25s ease;
+    transform-origin: center;
+}
+
+.hamburger span::before{
+    position: absolute;
+    top: -6px;
+}
+
+.hamburger span::after{
+    position: absolute;
+    top: 6px;
+
+}
+
+
+/* responsive */
+@media(max-width: 900px){
+    .menu{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        background-color: white;
+        max-height: 0;
+        padding: 0;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+        -webkit-transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+        -moz-transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+        -ms-transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+        -o-transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+    }
+
+    .menu li{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        border-bottom: 1px solid white;
+    }
+
+    .menu li a{
+        padding: 10px 0;
+    }
+
+    .menu .search,
+    .menu .nav-btn{
+        width: 90%;
+        margin-top: 1rem;
+    }
+
+    .menu-toggle:checked~.menu{
+        max-height: 100vw;
+        height: 100vw;
+        padding: 1.5rem 0;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .hamburger{
+        display: flex;
+    }
+
+    .menu-toggle:checked~.hamburger span{
+        background: transparent;
+    }
+    .menu-toggle:checked~.hamburger span::before{
+        top: 0;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+    }
+    .menu-toggle:checked~.hamburger span::after{
+        top: 0;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+    }
+}

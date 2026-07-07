@@ -1,0 +1,44 @@
+[
+    {
+        "id" : 1,
+        "name" : "THE ARIA",
+        "price" :  149000,
+        "image" : "./images/aria.webp",
+        "description": "Spesifikasi Najio\nBentuk: Square/Kotak\nGender: Unisex\nMaterial: Full asetat (terdapat plat besi di bagian gagang)\nPilihan warna: Black, Blue, dan Crystal\nFitur:\nSedikit elastis (bisa melebar ke samping sedikit)\nTanpa nose pads\nBonus: Hardcase premium, lap microfiber, pembersih lensa, dan garansi seumur hidup."
+    },
+        {
+        "id" : 2,
+        "name" : "THE AVIATOR CLASSIC",
+        "price" :  149000,
+        "image" : "./images/aviator.webp",
+        "description" : "ini matakaca"
+    },
+        {
+        "id" : 3,
+        "name" : "MIDNIGHT CAT",
+        "price" :  149000,
+        "image" : "./images/midnight.webp",
+        "description" : "ini matakaca"
+    },
+        {
+        "id" : 4,
+        "name" : "DOWNTOWN MATTE",
+        "price" :  149000,
+        "image" : "./images/downtown.webp",
+        "description" : "ini matakaca"
+    },
+        {
+        "id" : 5,
+        "name" : "THE OCEAN ECLIPSE",
+        "price" :  149000,
+        "image" : "./images/eclipse.webp",
+        "description" : "ini matakaca"
+    },
+        {
+        "id" : 6,
+        "name" : "THE HORIZON",
+        "price" :  149000,
+        "image" : "./images/horizon.webp",
+        "description" : "ini matakaca"
+    }
+]

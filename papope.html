@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LexScribe Responsive Checkout</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        /* ======================================================= */
+        /* HINT UTAMA: KONSEP RESPONSIVE FLEX-WRAP                 */
+        /* ======================================================= */
+        
+        .checkout-container {
+            display: flex;
+            flex-wrap: wrap; /* Ini kunci agar kolom kanan otomatis turun jika tidak muat */
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Pengaturan Default (Untuk Layar HP / Layar Kecil) */
+        /* Kedua kolom mengambil 100% lebar layar agar menumpuk ke bawah */
+        .col-left {
+            flex: 1 1 100%; 
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .col-right {
+            flex: 1 1 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Pengaturan Menggunakan Media Query (Untuk Layar Desktop / > 850px) */
+        /* Saat layar lebar, porsi dibagi berdampingan (Kiri 60% dan Kanan 35%) */
+        @media screen and (min-width: 850px) {
+            .col-left {
+                flex: 0 0 60%; 
+            }
+            .col-right {
+                flex: 0 0 36%; 
+            }
+        }
+
+        /* ======================================================= */
+        /* STYLING TAMBAHAN UNTUK ELEMEN FORM & SUMMARY            */
+        /* ======================================================= */
+        
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .item-list {
+            margin-bottom: 15px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 0.95rem;
+        }
+
+        .item-details p {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        .payment-option {
+            margin-bottom: 10px;
+        }
+
+        .payment-option label {
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        .btn-pay {
+            width: 100%;
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn-pay:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="checkout-container">
+        
+        <!-- KOLOM KIRI (FORM BILLING) -->
+        <div class="col-left">
+            <h2>Billing Details</h2>
+            <div class="form-group">
+                <label>Nama Lengkap</label>
+                <input type="text" placeholder="Masukkan nama Anda">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="nama@email.com">
+            </div>
+            <div class="form-group">
+                <label>Negara</label>
+                <select>
+                    <option>Indonesia</option>
+                    <option>Malaysia</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- KOLOM KANAN (SUMMARY & PAYMENT METHOD) -->
+        <div class="col-right">
+            
+            <!-- Ringkasan Belanja -->
+            <div class="card">
+                <h2>Order Summary</h2>
+                <div class="item-list">
+                    <div class="item">
+                        <div class="item-details">
+                            <strong>LexScribe Pro Plan</strong>
+                            <p>Langganan 1 Tahun</p>
+                        </div>
+                        <span>Rp 1.200.000</span>
+                    </div>
+                    <div class="item">
+                        <div class="item-details">
+                            <strong>Add-on: AI Summarizer</strong>
+                            <p>Kuota Bulanan Extra</p>
+                        </div>
+                        <span>Rp 150.000</span>
+                    </div>
+                </div>
+                <div class="total">
+                    <span>Total:</span>
+                    <span>Rp 1.350.000</span>
+                </div>
+            </div>
+
+            <!-- Metode Pembayaran -->
+            <div class="card">
+                <h2>Payment Method</h2>
+                <div class="payment-option">
+                    <input type="radio" id="bank" name="method" checked>
+                    <label for="bank">Transfer Bank (Manual)</label>
+                </div>
+                <div class="payment-option">
+                    <input type="radio" id="va" name="method">
+                    <label for="va">Virtual Account</label>
+                </div>
+                
+                <button class="btn-pay">Bayar Sekarang</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

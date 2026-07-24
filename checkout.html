@@ -46,16 +46,13 @@
     </header>
 
     <main>
-        <h2 class="greetings">shopping-cart</h2>
+        <h2 class="checkout_trigger">checkout</h2>
         <div class="cart-step">
-            <a href="" class="cart-active">
+            <a href="" class="cart-inactive">
                 <div class="num">1</div>
                 <h2>shopping-cart</h2>
             </a>
-
-
-
-            <a href="" class="cart-inactive">
+            <a href="" class="cart-active">
                 <div class="num">2</div>
                 <h2>checkout-detail</h2>
             </a>
@@ -66,26 +63,64 @@
             </div>
         </div>
 
-        <div class="cart">
-            <div class="cart-header">
-                <span>Products</span>
-                <span>Price</span>
-                <span>Quantity</span>
-                <span>Total</span>
-                <span>Remove</span>
+        <div class="checkout-container">
+            <div class="left-items">
+                <form action="" id="checkout-user-detail">
+                    <h2>Billing Details</h2>
+                    <div class="form">
+                        <input type="email" id="form-email" placeholder="Email Address">
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form">
+                        <input type="text" id="form-name" placeholder="Full Name">
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form">
+                        <select id="payment-method">
+                            <option value="transfer">Transfer</option>
+                            <option value="cash">Cash</option>
+                        </select>
+                    </div>
+                    <div class="note">
+                        <textarea name="" id="note" placeholder="Note about your order"></textarea>
+                    </div>
+                </form>
             </div>
 
-            <div class="cart-items"></div>
+            <div class="right-items">
+                <div class="summary">
+                    <div class="cek_title">Order Summary</div>
+                    <div class="quantity-total"></div>
+                    <div class="cart-items"></div>
+                    <h3>Cart Total</h3>
+                    <p>Subtotal <span class="cek_subtotal"></span></p>
+                    <p>Delivery Fee <span>Free</span></p>
+                    <p>Grand Total <span class="cek_grand-total"></span></p>
+                </div>
 
-            <div class="cart-total">
-                <h3>Cart Total</h3>
-                <p>Subtotal <span class="subtotal"></span></p>
-                <p>Delivery Fee <span>Free</span></p>
-                <p>Grand Total <span class="grand-total"></span></p>
-                <button class="checkout-btn">
-                    <a href="checkout.html">Proceed to Checkout</a>
-                </button>
+                <div class="card-payment-section hidden" id="card-payment-section">
+                    <h2>Card payment</h2>
+                    <div class="form">
+                        <span>Card number</span>
+                        <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="card-row">
+                        <div class="form">
+                            <span> Expiry date</span>
+                            <input type="text" id="card-expiry" placeholder="MM/YY" maxlength="5">
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form">
+                            <span>CVV</span>
+                            <input type="text" id="card-cvv" placeholder="CVV" maxlength="4">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" id="place-order-btn" class="checkout-btn">Place Order</button>
             </div>
+        </div>
         </div>
     </main>
     <script src="script.js"></script>

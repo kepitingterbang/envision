@@ -1,7 +1,7 @@
 
 const product_triger = document.querySelector(".product_trigger");
 const detail_trigger = document.querySelector(".detail");
-const add_to_cart_trigger = document.querySelector(".greetings");
+const add_to_cart_trigger = document.querySelector(".cart-header");
 const checkout_trigger = document.querySelector(".checkout_trigger");
 const complete_trigger = document.querySelector("#order-id");
 let products = null;
@@ -39,7 +39,7 @@ function addDataToHTML(){
         newProduct.innerHTML = `
             <img src="${product.image}" alt="${product.name}">
             <h2>${product.name}</h2>
-            <div class="price">${product.price}</div>
+            <div class="price">Rp ${product.price.toLocaleString('id-ID')}</div>
         `;
         
         listproduct.appendChild(newProduct);
@@ -69,7 +69,7 @@ function showdetail(){
         newProduct.innerHTML = `
             <img src="${product.image}">
             <h2>${product.name}</h2>
-            <div class="price">${product.price}</div>
+            <div class="price">Rp ${product.price.toLocaleString('id-ID')}</div>
         `;
         listproduct.appendChild(newProduct);
 
@@ -98,6 +98,7 @@ function addToCart(id){
     }
 
     localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartSection();
 }
 const cartMobileQuery = window.matchMedia('(max-width: 590px)');
 
@@ -192,6 +193,7 @@ function cartpage(){ // belum jadi
             let item = cart.find(c => c.id == id);
             if (item) item.quantity = qty;
             localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartSection();
             cartpage(); 
         });
     });
@@ -203,6 +205,7 @@ function cartpage(){ // belum jadi
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             cart = cart.filter(c => c.id != id);
             localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartSection();
             cartpage();
         });
     });
@@ -465,8 +468,28 @@ function checkout(){
         });
 
         if(allValid){
-            alert('Order berhasil! (di sini nanti proses ke server / payment gateway)');
+            let orderId = 'ORD-' + Date.now().toString().slice(-8) + '-' + Math.floor(Math.random() * 900 + 100);
+            localStorage.setItem('lastOrderId', orderId);
+            localStorage.removeItem('cart');
             window.location.href = 'complete.html';
         }
     })
 };
+
+function completePage(){
+    const orderIdEl = document.querySelector('#order-id');
+    let orderId = localStorage.getItem('lastOrderId');
+    orderIdEl.innerText = orderId || '-';
+    updateCartSection();
+};
+
+function updateCartSection(){
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    console.log(cart);
+    const totalQty = cart.reduce((sum, item) => sum + item.quantity, 0);
+    document.querySelectorAll('.cart-count').forEach(el => {
+        el.innerHTML = totalQty;
+        el.style.display = totalQty > 0 ? 'flex' : 'none';
+    });
+};
+updateCartSection();

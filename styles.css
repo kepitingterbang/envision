@@ -586,8 +586,15 @@ button{
     background-color: black;
     padding: 12px 30px;
     margin: 30px 0 0 auto;
+    letter-spacing: 0.12em;
+    transition: all 0.3s ease;
 }
-
+.checkout-btn:hover {
+    background: var(--gold);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(208, 163, 115, 0.25);
+}
 /* checkout page */
 .checkout-container{
     display: flex;
@@ -764,22 +771,236 @@ button{
     background-color: #2a3444;
 }
 /* cart pokoknya */
+.nav-btn .btn{
+    position: relative;
+}
 .cart-count{
+    display: flex;
+    justify-content: center;
+    text-align: center;
     position: absolute;
     top: -6px;
-    right: -8px;
+    right: -6px;
     background-color: var(--gold);
     color: white;
     font-family: montserrat;
     font-size: 0.7rem;
     font-weight: 700;
-    min-width: 18px;
+    width: 18px;
     height: 18px;
+    line-height: 18px;
+    text-align: center;
     border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    min-width: 18px;
+}
+.icon-box{
+    position: relative;
+    display: inline-flex;
+    line-height: 1;
+}
+
+/* header pokoknya */
+.about-container {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.25rem, 4vw, 3rem);
+}
+.about-split-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2.5rem, 6vw, 5.5rem);
+    align-items: start;
+    margin-bottom: 5rem;
+}
+.about-text-content {
     display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    padding-top: 0.5rem;
+}
+.about-block {
+    display: flex;
+    flex-direction: column;
+}
+.about-main-heading {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--hitamp);
+    margin: 0 0 1.5rem;
+    letter-spacing: -0.01em;
+}
+.about-sub-heading {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--hitamp);
+    margin: 0 0 1.25rem;
+    letter-spacing: -0.01em;
+}
+.about-body-p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+    line-height: 1.85;
+    color: #38404B;
+    margin: 0;
+    font-weight: 400;
+}
+.about-body-p strong {
+    font-family: 'Cinzel', serif;
+    color: var(--hitamp);
+    font-weight: 700;
+}
+.about-media-col {
+    width: 100%;
+}
+.about-portrait-holder {
+    width: 100%;
+
+    overflow: hidden;
+    background: #F4F1EA;
+}
+.about-portrait-holder img {
+    width: 100%;
+    height: auto;
+    max-height: auto;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+.about-portrait-holder:hover img {
+    transform: scale(1.02);
+}
+.about-banner-section {
+    margin: 2rem 0 5rem;
+    width: 100%;
+}
+.about-banner-holder {
+    width: 100%;
+    overflow: hidden;
+    background: #FAF8F5;
+}
+.about-banner-holder img {
+    width: 100%;
+    height: auto;
+    max-height: auto;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+.about-banner-holder:hover img {
+    transform: scale(1.015);
+}
+.about-quote-section {
+    text-align: center;
+    max-width: 1000px;
+    margin: 3.5rem auto 2.5rem;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 0 3px;
+}
+.about-quote-text {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--hitamp);
+    margin-bottom: 2.25rem;
+    letter-spacing: -0.01em;
+    font-style: italic;
+}
+.about-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--hitamp);
+    color: white;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.95rem 2.25rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+.about-cta-btn:hover {
+    background: var(--gold);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(208, 163, 115, 0.25);
+}
+/* rewards page */
+.rewards-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: clamp(2rem, 4vw, 4rem) clamp(1.25rem, 4vw, 3rem);
+}
+.rewards-hero {
+    margin-bottom: 3.5rem;
+}
+.rewards-hero-frame {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(208, 163, 115, 0.2);
+    background: #FAF8F5;
+}
+.rewards-banner-img {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s ease;
+}
+.rewards-hero-frame:hover .rewards-banner-img {
+    transform: scale(1.02);
+}
+.rewards-hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    background: linear-gradient(to top, rgba(27, 31, 34, 0.82) 0%, rgba(27, 31, 34, 0.4) 60%, transparent 100%);
+    color: white;
+}
+.rewards-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+.rewards-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 600;
+    margin: 0 0 0.75rem;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+}
+.rewards-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+    line-height: 1.6;
+    color: #E2E8F0;
+    max-width: 650px;
+    margin: 0;
 }
 @media screen and (min-width: 850px) {
     .left-items {
@@ -869,7 +1090,11 @@ button{
     .listproduct .item img{
         max-width: 100%;
         padding: 0 0;
-}
+    }
+    .about-split-section {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -983,4 +1208,99 @@ button{
         margin: 0;
         width: 100%;
     }
+}
+/* footer dibawah karena dia foot, ya pun nya jelek */
+.footer {
+    background: #FFFFFF;
+    color: #1B1F22;
+    padding: 3.5rem 0 1.5rem;
+    margin-top: 4rem;
+    border-top: 1px solid #a2a9b3;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2.5rem;
+}
+
+.footer-brand .brand {
+    font-size: 1.8rem;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    text-decoration: none;
+}
+
+.footer-brand .brand-first {
+    color: var(--gold);
+}
+
+.footer-brand .brand-second {
+    color: var(--hitamp);
+}
+
+.footer-desc {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.875rem;
+    color: #64748B;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 280px;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+    font-family: 'montserrat', serif;
+    font-size: 1rem;
+    color: var(--hitamp);
+    font-weight: 700;
+    margin: 0 0 1rem;
+    letter-spacing: 0.05em;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: #475569;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+.footer-contact p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.875rem;
+    color: #64748B;
+    margin: 0 0 0.5rem;
+}
+
+.footer-bottom {
+    width: 100%;
+    border-top: 1px solid #a2a9b3;
+    padding-right: 1.5rem;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: #64748B;
+    margin: 0;
 }
